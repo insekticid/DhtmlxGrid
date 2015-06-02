@@ -1,5 +1,7 @@
 # DhtmlxGrid Example
 
+//copy public/grid folder to your public
+
 use Dhtmlx;
 
 $dhtmlx->setEnableMultiselect(true)
