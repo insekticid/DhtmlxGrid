@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetImagePath implements Functions {
+class SetImagePath extends InitFunction implements Functions {
     const EXPRESSION = "%s.setImagePath('%s');";
 
     public static $_instance;

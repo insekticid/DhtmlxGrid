@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class EnableMultiselect implements Functions {
+class EnableMultiselect extends InitFunction implements Functions {
     const EXPRESSION = "%s.enableMultiselect(%s);";
 
     public $enable = false;

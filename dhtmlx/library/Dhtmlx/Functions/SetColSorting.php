@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetColSorting implements Functions {
+class SetColSorting extends InitFunction implements Functions {
     const EXPRESSION = "%s.setColSorting('%s');";
 
     /**

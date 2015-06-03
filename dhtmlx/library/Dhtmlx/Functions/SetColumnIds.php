@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetColumnIds implements Functions {
+class SetColumnIds extends InitFunction implements Functions {
     const EXPRESSION = "%s.setColumnIds('%s');";
 
     public $ids = array();

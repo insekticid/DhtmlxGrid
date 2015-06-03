@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetColumnHidden implements Functions {
+class SetColumnHidden extends InitFunction implements Functions {
     const EXPRESSION = "%s.setColumnHidden(%s,%s);";
 
     public $enable = true;

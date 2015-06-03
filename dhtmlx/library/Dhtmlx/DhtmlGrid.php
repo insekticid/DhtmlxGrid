@@ -27,6 +27,11 @@ class DhtmlGrid {
     private $rows = array();
 
     /**
+     * @var array
+     */
+    private $functions = array();
+
+    /**
      * @var null
      */
     private $gridHeader = null;
@@ -110,6 +115,19 @@ class DhtmlGrid {
             unset($this->rows[$id]);
         }
 
+        return $this;
+    }
+
+    /**
+     * @param $function
+     * @return $this
+     */
+    public function addFunction(\Dhtmlx\Functions\InitFunction $function)
+    {
+        if(!($function instanceof \Dhtmlx\Functions\InitFunction)){
+            throw new \Exception("The function is not Grid Function");
+        }
+        $this->functions[] = $function;
         return $this;
     }
 
@@ -231,6 +249,11 @@ class DhtmlGrid {
 
         $this->_populateGrid($grid);
 
+        foreach ($this->functions as $function) {
+            $grid .= $function->render();
+        }
+
+
         return "<script>" . PHP_EOL . $grid . PHP_EOL . "</script>";
     }
 
@@ -266,10 +289,12 @@ class DhtmlGrid {
         $this->gridHeader .= $setHeader->render();
 
         $attachHeader = \Dhtmlx\Functions\AttachHeader::getInstance();
-
-        $attachHeader->headers = $configInLine["labelHeaderRowspan"];
         $attachHeader->aligns = $configInLine["alignHeaderRowspan"];
-        $this->gridHeader .= $attachHeader->render();
+
+        if($this->configHeader['useColspan']){
+            $attachHeader->headers = $configInLine["labelHeaderRowspan"];
+            $this->gridHeader .= $attachHeader->render();
+        }
 
         $attachHeader->headers = $configInLine["filter"];
         $this->gridHeader .= $attachHeader->render();

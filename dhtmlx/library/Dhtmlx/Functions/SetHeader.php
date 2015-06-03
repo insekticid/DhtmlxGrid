@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetHeader implements Functions {
+class SetHeader extends InitFunction implements Functions {
     const EXPRESSION = "%s.setHeader('%s',null,%s);";
 
     public $headers = array();

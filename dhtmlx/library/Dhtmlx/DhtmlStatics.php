@@ -39,4 +39,14 @@ class DhtmlStatics {
      * Config for align header
      */
     const CONFIG_ALIGN_HEADER = "text-align:%s;";
-} 
+
+    /**
+     * Export data to Excell
+     */
+    const EXPORT_TO_EXCELL = "/grid/grid-excel-php/generate.php";
+
+    /**
+     * Export data to PDF
+     */
+    const EXPORT_TO_PDF = "/grid/grid-pdf-php/generate.php";
+}

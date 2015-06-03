@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetActive implements Functions {
+class SetActive extends InitFunction implements Functions {
     const EXPRESSION = "%s.setActive(%s);";
 
     public $enable = false;

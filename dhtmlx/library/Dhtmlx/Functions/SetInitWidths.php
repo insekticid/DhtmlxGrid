@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetInitWidths implements Functions {
+class SetInitWidths extends InitFunction implements Functions {
     const EXPRESSION = "%s.setInitWidths('%s');";
 
     public $widths = array();

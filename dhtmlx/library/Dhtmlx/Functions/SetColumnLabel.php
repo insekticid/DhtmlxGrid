@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetColumnLabel implements Functions {
+class SetColumnLabel extends InitFunction implements Functions {
     const EXPRESSION = "%s.setColumnLabel(%s,'%s');";
 
     public $label = "";

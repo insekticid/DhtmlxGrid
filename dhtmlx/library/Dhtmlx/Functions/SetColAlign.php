@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetColAlign implements Functions {
+class SetColAlign extends InitFunction implements Functions {
     const EXPRESSION = "%s.setColAlign('%s');";
 
     /**

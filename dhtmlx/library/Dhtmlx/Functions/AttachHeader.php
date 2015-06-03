@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class AttachHeader implements Functions {
+class AttachHeader extends InitFunction implements Functions {
     const EXPRESSION = "%s.attachHeader('%s',%s);";
 
     /**

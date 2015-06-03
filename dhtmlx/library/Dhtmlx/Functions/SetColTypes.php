@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class SetColTypes implements Functions {
+class SetColTypes extends InitFunction implements Functions {
     const EXPRESSION = "%s.setColTypes('%s');";
 
     /**

@@ -1,5 +1,8 @@
 # DhtmlxGrid Example
 
+<?php
+//copy public/grid folder to your public
+
 use Dhtmlx;
 
 $dhtmlx->setEnableMultiselect(true)
@@ -27,6 +30,27 @@ $dhtmlx->addRow(1, array("a1", "b1"));
 $dhtmlx->addRow(2, array("a2", "b2"));
 $dhtmlx->addRow(3, array("a3", "b3"));
 
+\Dhtmlx\Functions\SetRowHidden::getInstance()->id = 3;
+$dhtmlx->addFunction(\Dhtmlx\Functions\SetRowHidden::getInstance());
+
 echo $dhtmlx->rendererHeader();
 echo $dhtmlx->rendererHtml();
 echo $dhtmlx->render();
+?>
+
+<script>
+    <?php
+        \Dhtmlx\Functions\SetColumnLabel::getInstance()->label = "Novo Label";
+        echo \Dhtmlx\Functions\SetColumnLabel::getInstance()->render();
+    ?>
+
+    function cell(row,column){
+        <?php
+            \Dhtmlx\Functions\CellById::getInstance()->idColumn = 'column';
+            \Dhtmlx\Functions\CellById::getInstance()->idRow = 'row';
+            echo "return " . \Dhtmlx\Functions\CellById::getInstance()->render();
+        ?>
+    }
+    var teste = cell(1,0);
+    console.dir(teste.cell.innerHTML);
+</script>

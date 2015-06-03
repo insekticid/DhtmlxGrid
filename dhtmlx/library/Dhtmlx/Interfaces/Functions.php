@@ -11,8 +11,6 @@ namespace Dhtmlx\Interfaces;
 
 interface Functions {
 
-    public static function getInstance();
-
     public function render();
 
 } 

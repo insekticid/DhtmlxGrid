@@ -138,7 +138,7 @@ class gridPdfWrapper {
 			// circle for every header cell in row
 			for ($j = 0; $j < count($columns[$i]) - 1; $j++) {
 				// check if cell is not part of colspan cell
-				if ($columns[$i][$j]['width'] != 0) {
+				if (isset($columns[$i][$j]['width']) && $columns[$i][$j]['width'] != 0) {
 					// check if cell is not part of rowspan cell
 					if (((isset($columns[$i][$j]['rowspanPos']))&&($columns[$i][$j]['rowspanPos'] == 'top'))||(!isset($columns[$i][$j]['rowspanPos']))) {
 						// calculation width of cell

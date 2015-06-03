@@ -5,10 +5,12 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class EnableColumnAutoSize extends InitFunction implements Functions {
-    const EXPRESSION = "%s.enableColumnAutoSize(%s);";
+class AddRow extends InitFunction implements Functions {
+    const EXPRESSION = "%s.addRow(%s,'%s',%s);";
 
-    public $enable = false;
+    public $newId = 0;
+    public $text = "";
+    public $index = null;
 
     public static $_instance;
 
@@ -26,6 +28,6 @@ class EnableColumnAutoSize extends InitFunction implements Functions {
 
     public function render()
     {
-        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, var_export($this->enable, true)) . PHP_EOL;
+        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->newId, $this->text, $this->index) . PHP_EOL;
     }
 } 

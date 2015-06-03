@@ -5,7 +5,7 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class Parse implements Functions {
+class Parse extends InitFunction implements Functions {
     const EXPRESSION = "%s.parse(%s,'%s');";
 
     const TYPE_XML = "xml";
