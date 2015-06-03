@@ -1,5 +1,6 @@
 {
     "name": "jrglaber/dhtmlx",
+    "version": "1.0.0",
     "type": "library",
     "description": "Biblioteca para trabalhar com DHTMLX Grid.",
     "keywords": ["dhtmlx", "grid"],
