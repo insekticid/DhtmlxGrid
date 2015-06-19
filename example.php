@@ -33,6 +33,9 @@ $dhtmlx->addRow(3, array("a3", "b3"));
 \Dhtmlx\Functions\SetRowHidden::getInstance()->id = 3;
 $dhtmlx->addFunction(\Dhtmlx\Functions\SetRowHidden::getInstance());
 
+\Dhtmlx\Events\OnRowSelect::getInstance()->setFunction("alert('Linha de id ' + id);");
+$dhtmlx->addEvent(\Dhtmlx\Events\OnRowSelect::getInstance());
+
 echo $dhtmlx->rendererHeader();
 echo $dhtmlx->rendererHtml();
 echo $dhtmlx->render();

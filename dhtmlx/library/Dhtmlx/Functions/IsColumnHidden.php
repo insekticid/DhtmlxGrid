@@ -5,12 +5,10 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class AddRow extends InitFunction implements Functions {
-    const EXPRESSION = "%s.addRow(%s,'%s',%s);";
+class IsColumnHidden extends InitFunction implements Functions {
+    const EXPRESSION = "%s.isColumnHidden(%s);";
 
-    public $newId = 0;
-    public $text = "";
-    public $index = null;
+    public $id = 0;
 
     public static $_instance;
 
@@ -28,9 +26,6 @@ class AddRow extends InitFunction implements Functions {
 
     public function render()
     {
-        if($this->newId > 0){
-            return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->newId, $this->text, $this->index) . PHP_EOL;
-        }
-
+        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->id) . PHP_EOL;
     }
 } 

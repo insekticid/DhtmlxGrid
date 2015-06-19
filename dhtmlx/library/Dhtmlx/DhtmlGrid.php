@@ -32,6 +32,11 @@ class DhtmlGrid {
     private $functions = array();
 
     /**
+     * @var array
+     */
+    private $events = array();
+
+    /**
      * @var null
      */
     private $gridHeader = null;
@@ -128,6 +133,19 @@ class DhtmlGrid {
             throw new \Exception("The function is not Grid Function");
         }
         $this->functions[] = $function;
+        return $this;
+    }
+
+    /**
+     * @param $function
+     * @return $this
+     */
+    public function addEvent(\Dhtmlx\Events\InitEvent $event)
+    {
+        if(!($event instanceof \Dhtmlx\Events\InitEvent)){
+            throw new \Exception("The event is not Grid Event");
+        }
+        $this->events[] = $event;
         return $this;
     }
 
@@ -251,6 +269,12 @@ class DhtmlGrid {
 
         foreach ($this->functions as $function) {
             $grid .= $function->render();
+        }
+
+        foreach ($this->events as $event) {
+            $attachEvent = \Dhtmlx\Functions\AttachEvent::getInstance();
+            $attachEvent->event = $event;
+            $grid .= $attachEvent->render();
         }
 
 
