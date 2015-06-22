@@ -5,13 +5,13 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class ForEachRow extends InitFunction implements Functions {
-    const EXPRESSION = "%s.forEachRow(function(id){%s});";
+class EnableResizing extends InitFunction implements Functions {
+    const EXPRESSION = "%s.enableResizing('%s);";
 
     /**
-     * @var  Create javascript function with string. Assignature function: function(id){}
+     * @var array disable resizing of the first column Ex: array(false,true,true,true,true,true,true)
      */
-    public $custom_code;
+    public $list = array();
 
     public static $_instance;
 
@@ -29,6 +29,6 @@ class ForEachRow extends InitFunction implements Functions {
 
     public function render()
     {
-        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->custom_code) . PHP_EOL;
+        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, implode(",", $this->list)) . PHP_EOL;
     }
 } 

@@ -5,13 +5,13 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class ForEachRow extends InitFunction implements Functions {
-    const EXPRESSION = "%s.forEachRow(function(id){%s});";
+class ForceFullLoading extends InitFunction implements Functions {
+    const EXPRESSION = "%s.forceFullLoading(%s);";
 
     /**
-     * @var  Create javascript function with string. Assignature function: function(id){}
+     * @var int size of data which will be loaded by single iteration, optional, 50 rows by default
      */
-    public $custom_code;
+    public $buffer = 0;
 
     public static $_instance;
 
@@ -29,6 +29,6 @@ class ForEachRow extends InitFunction implements Functions {
 
     public function render()
     {
-        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->custom_code) . PHP_EOL;
+        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->buffer) . PHP_EOL;
     }
 } 

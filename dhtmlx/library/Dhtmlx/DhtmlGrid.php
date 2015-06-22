@@ -263,7 +263,7 @@ class DhtmlGrid {
         }
         $grid .= $this->gridHeader;
 
-        $grid .= \Dhtmlx\DhtmlStatics::VAR_GRID.".init();";
+        $grid .= \Dhtmlx\Functions\Init::getInstance()->render();
 
         $this->_populateGrid($grid);
 

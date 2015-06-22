@@ -5,13 +5,10 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class ForEachRow extends InitFunction implements Functions {
-    const EXPRESSION = "%s.forEachRow(function(id){%s});";
+class EnableKeyboardSupport extends InitFunction implements Functions {
+    const EXPRESSION = "%s.enableKeyboardSupport(%s);";
 
-    /**
-     * @var  Create javascript function with string. Assignature function: function(id){}
-     */
-    public $custom_code;
+    public $mode = false;
 
     public static $_instance;
 
@@ -29,6 +26,6 @@ class ForEachRow extends InitFunction implements Functions {
 
     public function render()
     {
-        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->custom_code) . PHP_EOL;
+        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, var_export($this->mode, true)) . PHP_EOL;
     }
 } 

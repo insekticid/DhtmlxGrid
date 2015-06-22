@@ -5,13 +5,15 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class ForEachRow extends InitFunction implements Functions {
-    const EXPRESSION = "%s.forEachRow(function(id){%s});";
+class RegisterCList extends InitFunction implements Functions {
+    const EXPRESSION = "%s.registerCList(%s,%s);";
+
+    public $cId = 0;
 
     /**
-     * @var  Create javascript function with string. Assignature function: function(id){}
+     * @var array an array of options set in the list. Ex: array("Stephen King","John Grisham","Honore de Balzac")
      */
-    public $custom_code;
+    public $list = array();
 
     public static $_instance;
 
@@ -29,6 +31,6 @@ class ForEachRow extends InitFunction implements Functions {
 
     public function render()
     {
-        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->custom_code) . PHP_EOL;
+        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->cId, json_encode($this->list)) . PHP_EOL;
     }
 } 

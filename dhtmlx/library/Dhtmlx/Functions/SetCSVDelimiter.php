@@ -5,13 +5,13 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class ForEachRow extends InitFunction implements Functions {
-    const EXPRESSION = "%s.forEachRow(function(id){%s});";
+class SetCSVDelimiter extends InitFunction implements Functions {
+    const EXPRESSION = "%s.setCSVDelimiter(%s);";
 
     /**
-     * @var  Create javascript function with string. Assignature function: function(id){}
+     * @var string the delimiter used in CSV operations, comma by default (only single char delimiters allowed)
      */
-    public $custom_code;
+    public $str = ',';
 
     public static $_instance;
 
@@ -29,6 +29,6 @@ class ForEachRow extends InitFunction implements Functions {
 
     public function render()
     {
-        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->custom_code) . PHP_EOL;
+        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->str) . PHP_EOL;
     }
 } 
