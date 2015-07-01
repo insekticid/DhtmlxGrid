@@ -26,6 +26,11 @@ class DhtmlStatics {
     const PATH_IMG = "/grid/imgs/";
 
     /**
+     * Path for grid icons
+     */
+    const PATH_ICONS = "/grid/icons/";
+
+    /**
      * Rowspan lines
      */
     const ROWSPAN_IDENTIFICADOR = "#rspan";
