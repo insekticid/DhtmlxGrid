@@ -5,12 +5,10 @@ namespace Dhtmlx\Functions;
 
 use Dhtmlx\Interfaces\Functions;
 
-class AddRow extends InitFunction implements Functions {
-    const EXPRESSION = "%s.addRow(%s,%s,%s);";
+class SetDateFormat extends InitFunction implements Functions {
+    const EXPRESSION = "%s.setDateFormat(%s);";
 
-    public $newId = '';
-    public $text = "";
-    public $index = null;
+    public $mask = '"%d/%m/%Y"';
 
     public static $_instance;
 
@@ -28,9 +26,6 @@ class AddRow extends InitFunction implements Functions {
 
     public function render()
     {
-        if(!empty($this->newId)){
-            return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->newId, $this->text, $this->index) . PHP_EOL;
-        }
-
+        return sprintf(self::EXPRESSION, \Dhtmlx\DhtmlStatics::VAR_GRID, $this->mask) . PHP_EOL;
     }
 } 

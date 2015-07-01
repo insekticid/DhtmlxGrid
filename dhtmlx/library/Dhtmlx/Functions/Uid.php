@@ -8,8 +8,6 @@ use Dhtmlx\Interfaces\Functions;
 class Uid extends InitFunction implements Functions {
     const EXPRESSION = "%s.uid();";
 
-    public $mode = true;
-
     public static $_instance;
 
     public function __construct() {

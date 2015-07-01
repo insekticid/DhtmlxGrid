@@ -96,9 +96,9 @@ class DhtmlGrid {
      */
     public function addRow($id, array $data = array())
     {
-        if(!is_numeric($id)){
-            throw new \Exception("Invalid ID - No Numeric");
-        }
+//        if(!is_numeric($id)){
+//            throw new \Exception("Invalid ID - No Numeric");
+//        }
 
         if(!isset($this->rows[$id])){
             $this->rows[$id] = $data;
@@ -180,6 +180,16 @@ class DhtmlGrid {
     }
 
     /**
+     * @param string $mask default '%d/%m/%Y'
+     * @return $this
+     */
+    public function setSetMaskDate($mask = '%d/%m/%Y')
+    {
+        \Dhtmlx\Functions\SetDateFormat::getInstance()->mask = "'{$mask}'";
+        return $this;
+    }
+
+    /**
      * @param string $type
      * @return $this
      */
@@ -257,6 +267,7 @@ class DhtmlGrid {
         $grid .= \Dhtmlx\Functions\EnableMultiselect::getInstance()->render();
         $grid .= \Dhtmlx\Functions\EnableColumnAutoSize::getInstance()->render();
         $grid .= \Dhtmlx\Functions\SetActive::getInstance()->render();
+        $grid .= \Dhtmlx\Functions\SetDateFormat::getInstance()->render();
 
         if(is_null($this->gridHeader)){
             $this->_header();
